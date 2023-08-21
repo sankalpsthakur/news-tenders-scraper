@@ -95,12 +95,10 @@ def fetch_and_post_news():
         file.write(f"{seci_news_str}\n{mnre_news_str}")
 
 # Schedule the job to run every day at 6 AM
-# schedule.every().day.at("06:00").do(fetch_and_post_news)
+schedule.every().day.at("06:00").do(fetch_and_post_news)
 
 
 # Keep the script running
-# while True:
-#    schedule.run_pending()
-#    time.sleep(1)
-
-print(fetch_and_post_news())
+while True:
+    schedule.run_pending()
+    time.sleep(1)

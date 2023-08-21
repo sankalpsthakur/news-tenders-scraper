@@ -1,0 +1,12 @@
+# Web scraping
+beautifulsoup4==4.9.3
+requests==2.25.1
+
+# Environment variables
+python-dotenv==0.19.0
+
+# Scheduling
+schedule==1.1.0
+
+# For sending emails (if using SMTP)
+smtplib==1.1.0

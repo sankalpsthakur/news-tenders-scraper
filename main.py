@@ -4,6 +4,7 @@ import time
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+from Updater import CheckRepoUpdates
 MNRE_URL = 'https://www.mnre.gov.in/tenders/recent' 
 SECI_URL = "https://seci.co.in/whats-new"
 WEBHOOK_URL = 'https://hygencoin.webhook.office.com/webhookb2/f2ec3478-9d11-4553-8c65-6708e56da9e6@7ae7c16b-7491-45c1-b6a7-c4dc469742af/IncomingWebhook/b7deab2cc69047eeb362ec0dba559631/07aa046b-a66f-434c-9239-3a22dfe3e09c'
@@ -69,6 +70,8 @@ def post_to_teams(message):
 
 def fetch_and_post_news():
     # Read previous day's headlines
+    CheckRepoUpdates()
+    
     with open('previous_headlines.txt', 'r') as file:
         previous_headlines = file.read().strip().split('\n')
         previous_seci_news = previous_headlines[0] if len(previous_headlines) > 0 else ""
